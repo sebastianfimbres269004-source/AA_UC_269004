@@ -14,6 +14,7 @@ public class Main {
         
         int[] datosBurbuja = {64, 34, 25, 12, 22, 11, 90};
         int[] datosSeleccion = {64, 25, 12, 22, 11};
+        int[] datosInsercion = {64, 34, 25, 12, 22, 11, 90};
 
         System.out.println("--- Ordenamiento Burbuja ---");
         ordenador.burbuja(datosBurbuja);
@@ -22,6 +23,10 @@ public class Main {
         System.out.println("\n--- Ordenamiento Selección ---");
         ordenador.seleccion(datosSeleccion);
         imprimirArray(datosSeleccion);
+        
+        System.out.println("\n--- Ordenamiento Insercion ---");
+        ordenador.insercion(datosInsercion);
+        imprimirArray(datosInsercion);
     }
 
     public static void imprimirArray(int[] arr) {
