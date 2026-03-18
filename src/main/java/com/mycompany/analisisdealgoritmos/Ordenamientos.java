@@ -1,10 +1,8 @@
-package com.mycompany.analisisdealgoritmos;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
+package com.mycompany.analisisdealgoritmos;
 /**
  *
  * @author sebastian
@@ -45,9 +43,8 @@ public class Ordenamientos {
             arr[i] = temp;
         }
     }
-}
-
-    // Algoritmo de Ordenamiento por Inserción
+    
+        // Algoritmo de Ordenamiento por Inserción
     public void insercion(int[] arr) {
         int n = arr.length;
         
@@ -63,3 +60,4 @@ public class Ordenamientos {
         }
     }
     
+}
