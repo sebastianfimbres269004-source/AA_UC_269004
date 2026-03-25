@@ -59,4 +59,46 @@ public class Ordenamientos {
             arr[j + 1] = key;
         }
     }   
+    
+    // Algoritmo de Ordenamiento Quicksort
+    public void quicksort(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return;
+        }
+        quicksortRecursivo(arr, 0, arr.length - 1);
+    }
+    
+    private void quicksortRecursivo(int[] arr, int inicio, int fin) {
+        if (inicio < fin) {
+            // Encuentra el índice de partición (el pivote queda en su lugar correcto)
+            int indiceParticion = particion(arr, inicio, fin);
+
+            // Ordena la mitad izquierda antes del pivote
+            quicksortRecursivo(arr, inicio, indiceParticion - 1);
+            // Ordena la mitad derecha después del pivote
+            quicksortRecursivo(arr, indiceParticion + 1, fin);
+        }
+    }
+
+    private int particion(int[] arr, int inicio, int fin) {
+        int pivote = arr[fin]; // Elegimos el último número como pivote
+        int i = (inicio - 1);  // Índice del elemento más pequeño
+
+        for (int j = inicio; j < fin; j++) {
+            // Si el elemento actual es menor o igual al pivote
+            if (arr[j] <= pivote) {
+                i++;
+                // Intercambiamos arr[i] y arr[j]
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[fin];
+        arr[fin] = temp;
+
+        return i + 1; // Regresamos la posición final del pivote
+    }
 }
