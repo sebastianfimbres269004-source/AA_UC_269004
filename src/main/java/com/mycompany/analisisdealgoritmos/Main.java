@@ -16,22 +16,27 @@ public class Main {
         int[] datosSeleccion = {64, 25, 12, 22, 11};
         int[] datosInsercion = {64, 34, 25, 12, 22, 11, 90};
         int[] datosQuicksort = {64, 34, 25, 12, 22, 11, 90};
+        int[] datosMerge = {64, 34, 25, 12, 22, 11, 90};
 
         System.out.println("--- Ordenamiento Burbuja ---");
         ordenador.burbuja(datosBurbuja);
         imprimirArray(datosBurbuja);
 
-        System.out.println("\n--- Ordenamiento Selección ---");
+        System.out.println("--- Ordenamiento Selección ---");
         ordenador.seleccion(datosSeleccion);
         imprimirArray(datosSeleccion);
         
-        System.out.println("\n--- Ordenamiento Insercion ---");
+        System.out.println("--- Ordenamiento Insercion ---");
         ordenador.insercion(datosInsercion);
         imprimirArray(datosInsercion);
         
-        System.out.println("\n--- Ordenamiento Quicksort ---");
+        System.out.println("--- Ordenamiento Quicksort ---");
         ordenador.quicksort(datosQuicksort);
         imprimirArray(datosQuicksort);
+        
+        System.out.println("--- Ordenamiento Merge Sort ---");
+        ordenador.mergeSort(datosMerge);
+        imprimirArray(datosMerge);
     }
 
     public static void imprimirArray(int[] arr) {
