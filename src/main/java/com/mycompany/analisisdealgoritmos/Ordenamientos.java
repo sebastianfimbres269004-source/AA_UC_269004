@@ -101,4 +101,73 @@ public class Ordenamientos {
 
         return i + 1; // Regresamos la posición final del pivote
     }
+    
+    // --- Algoritmo de Ordenamiento Merge Sort (Mezcla) ---
+    
+    public void mergeSort(int[] arr) {
+        if (arr == null || arr.length <= 1) {
+            return;
+        }
+        mergeSortRecursivo(arr, 0, arr.length - 1);
+    }
+    
+    private void mergeSortRecursivo(int[] arr, int izq, int der) {
+        if (izq < der) {
+            // Encuentra el punto medio para dividir
+            int medio = izq + (der - izq) / 2;
+
+            // Manda a dividir y ordenar la mitad izquierda
+            mergeSortRecursivo(arr, izq, medio);
+            
+            // Manda a dividir y ordenar la mitad derecha
+            mergeSortRecursivo(arr, medio + 1, der);
+
+            // Junta (mezcla) ambas mitades ya ordenadas
+            mezclar(arr, izq, medio, der);
+        }
+    }
+    
+    private void mezclar(int[] arr, int izq, int medio, int der) {
+        // Calculamos los tamaños de los dos subarreglos temporales
+        int n1 = medio - izq + 1;
+        int n2 = der - medio;
+
+        // Creamos los arreglos temporales Izquierdo (L) y Derecho (R)
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+
+        // Copiamos los datos a estos arreglos temporales
+        for (int i = 0; i < n1; ++i) L[i] = arr[izq + i];
+        for (int j = 0; j < n2; ++j) R[j] = arr[medio + 1 + j];
+
+        // Índices para recorrer L, R y el arreglo original (k)
+        int i = 0, j = 0;
+        int k = izq;
+
+        // Mezclamos comparando qué número es menor
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) {
+                arr[k] = L[i]; // Gana el de la izquierda
+                i++;
+            } else {
+                arr[k] = R[j]; // Gana el de la derecha
+                j++;
+            }
+            k++;
+        }
+
+        // Si sobraron elementos en la izquierda, los copiamos
+        while (i < n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+        // Si sobraron elementos en la derecha, los copiamos
+        while (j < n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
 }
