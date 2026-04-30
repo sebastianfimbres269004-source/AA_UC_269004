@@ -10,6 +10,7 @@ package com.mycompany.analisisdealgoritmos;
  */
 public class Main {
     public static void main(String[] args) {
+        Busqueda buscador = new Busqueda();
         Ordenamientos ordenador = new Ordenamientos();
         
         int[] datosBurbuja = {64, 34, 25, 12, 22, 11, 90};
@@ -37,6 +38,19 @@ public class Main {
         System.out.println("--- Ordenamiento Merge Sort ---");
         ordenador.mergeSort(datosMerge);
         imprimirArray(datosMerge);
+        
+        System.out.println("\n--- Pruebas de Búsqueda ---");
+        
+        // Usaremos el arreglo de Merge Sort que ya está ordenado
+        int numeroABuscar = 25; 
+        
+        // Búsqueda Lineal
+        int posicionLineal = buscador.busquedaLineal(datosMerge, numeroABuscar);
+        System.out.println("Búsqueda Lineal: El número " + numeroABuscar + " está en la posición: " + posicionLineal);
+
+        // Búsqueda Binaria
+        int posicionBinaria = buscador.busquedaBinaria(datosMerge, numeroABuscar);
+        System.out.println("Búsqueda Binaria: El número " + numeroABuscar + " está en la posición: " + posicionBinaria);
     }
 
     public static void imprimirArray(int[] arr) {
